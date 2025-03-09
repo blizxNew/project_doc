@@ -19,7 +19,7 @@
 
 ## 2 基础篇
 
-### 2.1 基本的输出
+### 2.1 基本的输出[视频p2]
 
 > alert: 浏览器弹出警告框
 >
@@ -62,3 +62,69 @@
 </html>
 ```
 
+
+
+### 2.2 js代码位置[视频p3]
+
+>1 将代码写在标签的属性中，但是这属于结构与行为耦合，不推荐
+>
+>2 代码写到script标签中，如果有多个script标签中存在相同的函数，会执行只有一个标签的
+>
+>3 js代码写在外部js里面，通过script标签引入。写到外部文件中的代码可以在不同的页面中同时使用，也可以利用浏览器的缓存机制，推荐使用 
+>
+>​	注意点：当script标签一旦引入了外部文件，就不能中间写代码了，因为写了，浏览器也会忽略。如果需要将代码写在script标签内，重新再加一个便是
+
+```HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <!--4 js代码写在外部js里面，通过script标签引入，
+        写到外部文件中的代码可以在不同的页面中同时使用，也可以利用浏览器的缓存机制，推荐使用
+  -->
+  <script type="text/javascript" src="../js/02_learn_js.js"></script>
+  <script type="text/javascript">
+    //3  代码写到script标签中，并添加type="text/javascript"属性
+   function myAlert () {
+     alert('Hello World!');
+   }
+  </script>
+</head>
+<body>
+ <!--1 代码写到标签的onclick属性中，点击时候会执行。-->
+ <!--可以将代码写在标签的属性中，但是这属于结构与行为耦合，不推荐-->
+ <button onclick="alert('Hello World!')">点我</button>
+ <!--2 代码写到超链接标签的href属性中，并以javascript:开头，点击时候会执行，-->
+ <a href="javascript:alert('Hello World!')">点我</a>
+ <!--点击超链接，不会跳转-->
+ <a href="javascript:;">点我</a>
+ <!--3 代码写到script标签中-->
+ <!--有同名时候，会执行最后一个-->
+ <button onclick="myAlert()">点我11</button>
+ <button onclick="myFun()">点我222</button>
+
+ <script type="text/javascript">
+   //3  代码写到script标签中，这里会执行
+   function myAlert () {
+     alert('H!1111');
+   }
+ </script>
+</body>
+</html>
+```
+
+### 2.3 基本上语法[视频p4]
+
+1  注释
+
+> ```
+> /**/ 多行注释
+> // 单行注释
+> ```
+
+2  JS中严格区分大小写
+
+3  JS中每一条语句以分号结尾。如果不写，浏览器会自动加上，但是会消耗点儿性能，而且有时候，浏览器会加错分号
+
+4  JS会忽略多个空格和换行，所以我们可以利用这个来美化代码
