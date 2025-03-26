@@ -15,4 +15,4 @@
 > 输入cmd，回车
 
 2 常见命令  
-![常见命令](./images/01_base.png)
+![常见命令](images/01_base.png)
